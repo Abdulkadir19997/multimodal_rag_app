@@ -1,4 +1,4 @@
-## Multi-modal RAG
+## Multi-modal RAG APP for Scientific papers
 
 Many documents contain a mixture of content types, including text and images.
 
@@ -33,6 +33,7 @@ Refer to poppler [installation instructions](https://pdf2image.readthedocs.io/en
 
 **The front_end is only to showcase the results and shows you how to integrate the API's.**
 
+![app_demo](data/readme_images/app_demo.png)
 
 ## Developer Guide for environment setup
 
@@ -119,7 +120,7 @@ sudo apt-get install poppler-utils tesseract-ocr
 ```
 
 
-### Step 6: Add you OpenAI API and LangSmith keys
+### Step 6: Add you OpenAI API and LangSmith keys to the .env file
 
 Create an .env file inside the 'multimodal_rag_app' and add the Keys such as the given example:
 ```bash
