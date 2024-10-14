@@ -18,7 +18,7 @@ This Web APP project highlights `Option 3` from the image shown below.
 * We will use [Unstructured](https://unstructured.io/) to parse images, text, and tables from documents (PDFs).
 * We will use the [multi-vector retriever](https://python.langchain.com/docs/modules/data_connection/retrievers/multi_vector) with [Chroma](https://www.trychroma.com/) to store raw text, tables and images along with their summaries for retrieval.
 
-![multimodal graph](data\readme_images\multimodal_graph.png)
+![multimodal graph](data/readme_images/multimodal_graph.png)
 
 
 ## SetUp
