@@ -9,7 +9,7 @@ With the emergence of multimodal LLMs, like [GPT-4o](https://openai.com/research
 
 ### What we will be Using / Doing
 
-* Use a multimodal LLM (such as [GPT-4V](https://openai.com/research/gpt-4v-system-card), [LLaVA](https://llava.hliu.cc/), or [FUYU-8b](https://www.adept.ai/blog/fuyu-8b)) to produce text summaries from images
+* Use a multimodal LLM (such as [GPT-4o](https://openai.com/research/gpt-4o-system-card), [LLaVA](https://llava.hliu.cc/), or [FUYU-8b](https://www.adept.ai/blog/fuyu-8b)) to produce text summaries from images
 * Embed and retrieve image summaries with a reference to the raw image
 * Pass raw images and text chunks to a multimodal LLM for answer synthesis   
 
@@ -29,19 +29,19 @@ The PDF partitioning used by Unstructured will use:
 
 Refer to poppler [installation instructions](https://pdf2image.readthedocs.io/en/latest/installation.html) and tesseract [installation instructions](https://tesseract-ocr.github.io/tessdoc/Installation.html) in your system.
 
+
+
 **The front_end is only to showcase the results and shows you how to integrate the API's.**
 
 
 ## Developer Guide for environment setup
-A minimum of 12 gb memory gpu is required. I used Nvidia RTX 3060 in the development and test process.
-
 
 ### Step 1: Clone the Repository
 
 First, clone the repository to your local machine using the command:
 
 ```bash
-git clone https://github.com/Abdulkadir19997/Auto-Inpaint-Anything-WebAPP.git
+git clone https://github.com/Abdulkadir19997/multimodal_rag_app.git
 ```
 
 **Keep the project archtiecture the same:**
@@ -84,10 +84,10 @@ git clone https://github.com/Abdulkadir19997/Auto-Inpaint-Anything-WebAPP.git
 
 ### Step 2: Create Python Environment
 
-Inside the downloaded 'Automated-Inpaint-Anything' folder, create a Python environment, **I used 3.10.12 version of python**. For example, to create an environment named 'auto_inpainter', use:
+Inside the downloaded 'multimodal_rag_app' folder, create a Python environment, **I used 3.10.12 version of python**. For example, to create an environment named 'multi_rag', use:
 
 ```bash
-python -m venv auto_inpainter
+python -m venv multi_rag
 ```
 
 ### Step 3: Activate Environment
@@ -96,43 +96,55 @@ Activate the environment with:
 
 **For Windows**
 ```bash
-.\auto_inpainter\Scripts\activate
+.\multi_rag\Scripts\activate
 ```
 
 **For Linux**
 ```bash
-source auto_inpaint/bin/activate
+source multi_rag/bin/activate
 ```
 
 ### Step 4: Install Requirements
 
-After confirming that the auto_inpainter environment is active, install all necessary libraries from the 'requirements.txt' file:
+After confirming that the multi_rag environment is active, install all necessary libraries from the 'requirements.txt' file:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 5: Download the checkpoint models from the drive link
-Download the model checkpoints:
-1. Download the SAM sam_vit_h_4b8939.pth and the big-lama models from the given drive [pretrained_models](https://drive.google.com/drive/folders/1wpY-upCo4GIW4wVPnlMh_ym779lLIG2A?usp=sharing) 
-2. Put both of them into `inpaint_anything/pretrained_models` folder (remember to extract the downloaded big-lama.zip file).
+### Step 5: Download tesseract and poppler for pdf rendering
+
+```bash
+sudo apt-get install poppler-utils tesseract-ocr
+```
 
 
-### Step 6: Run the Streamlit Application
+### Step 6: Add you OpenAI API and LangSmith keys
 
-In the active 'auto_inpainter' environment, run the 'front_end.py' file with:
+Create an .env file inside the 'multimodal_rag_app' and add the Keys such as the given example:
+```bash
+# openai api key
+OPENAI_API_KEY = "your_open_ai_api_key"
+# langsmith traces
+LANGCHAIN_API_KEY = "your_lang_smith_api_key"
+```
+
+
+### Step 7: Run the Streamlit Application
+
+In the active 'multi_rag' environment, run the 'front_end.py' file with:
 
 ```bash
 streamlit run front_end.py
 ```
 
-### Step 7: Open a New Terminal Session
+### Step 8: Open a New Terminal Session
 
-Open a new terminal inside the 'Automated-Inpaint-Anything' folder and activate the 'auto_inpainter' environment again:
+Open a new terminal inside the 'multimodal_rag_app' folder and activate the 'multi_rag' environment again:
 
 **For Winows**
 ```bash
-.\auto_inpainter\Scripts\activate
+.\multi_rag\Scripts\activate
 ```
 
 **For Linux**
@@ -140,9 +152,9 @@ Open a new terminal inside the 'Automated-Inpaint-Anything' folder and activate 
 source auto_inpaint/bin/activate
 ```
 
-### Step 8: Run FastAPI
+### Step 9: Run FastAPI
 
-In the second terminal with the 'auto_inpainter' environment active, start the FastAPI service with:
+In the second terminal with the 'multi_rag' environment active, start the FastAPI service with:
 
 ```bash
 uvicorn main:app --host 127.0.0.1 --port 5004 --reload
@@ -150,14 +162,13 @@ uvicorn main:app --host 127.0.0.1 --port 5004 --reload
 
 
 ## Notes
-To run locally, operate two different terminals each time: one with the 'auto_inpainter' environment to run 'streamlit run front_end.py', and another to execute 'uvicorn main:app --host 127.0.0.1 --port 5004 --reload'.
+To run locally, operate two different terminals each time: one with the 'multi_rag' environment to run 'streamlit run front_end.py', and another to execute 'uvicorn main:app --host 127.0.0.1 --port 5004 --reload'.
 
 ## Acknowledgments
-Many thanks to these excellent opensource projects
-* [LaMA](https://github.com/saic-mdal/lama)
-* [GroundingDino](https://huggingface.co/docs/transformers/en/model_doc/grounding-dino)
-* [SAM](https://github.com/facebookresearch/segment-anything)
-* [Inpaint-Anything](https://github.com/geekyutao/Inpaint-Anything)
+Many thanks to these excellent projects
+* [Unstructured](https://unstructured.io/)
+* [GPT-4o](https://openai.com/research/gpt-4o-system-card)
+* [Langchain](https://python.langchain.com/docs/introduction/)
 
 ## Version
 The current version is 1.0. Development is ongoing, and any support or suggestions are welcome. Please reach out to me:
