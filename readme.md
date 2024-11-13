@@ -1,5 +1,9 @@
 ## Multi-modal RAG APP for Scientific papers
 
+## Click on image below to my Youtube video for more in depth explanation on the demo
+
+[![IMAGE ALT TEXT HERE](data/readme_images/simple.png)](https://www.youtube.com/watch?v=dxAKop38BIM&t=1s)
+
 Many documents contain a mixture of content types, including text and images.
 
 Yet, information captured in images is lost in most RAG applications.
@@ -35,8 +39,6 @@ Refer to poppler [installation instructions](https://pdf2image.readthedocs.io/en
 
 ![app_demo](data/readme_images/app_demo.png)
 
-## My youtube video explaining the demo
-[![IMAGE ALT TEXT HERE](data/readme_images/simple.png)](https://www.youtube.com/watch?v=dxAKop38BIM&t=1s)
 
 ## Developer Guide for environment setup
 
