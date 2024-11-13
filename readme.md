@@ -36,7 +36,7 @@ Refer to poppler [installation instructions](https://pdf2image.readthedocs.io/en
 ![app_demo](data/readme_images/app_demo.png)
 
 ## My youtube video explaining the demo
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/dxAKop38BIM&t=1s/0.jpg)](https://www.youtube.com/watch?v=dxAKop38BIM&t=1s)
+[![IMAGE ALT TEXT HERE](data/readme_images/simple.png)](https://www.youtube.com/watch?v=dxAKop38BIM&t=1s)
 
 ## Developer Guide for environment setup
 
